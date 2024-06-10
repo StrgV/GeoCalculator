@@ -1,5 +1,22 @@
+/*:root[data-theme="light"] {
+    --text: hsl(210, 39%, 7%);
+    --background: hsl(210, 39%, 93%);
+    --primary: hsl(207, 40%, 27%);
+    --secondary: hsl(250, 40%, 66%);
+    --accent: hsl(268, 40%, 50%);
+  }*/
+
+:root{
+--text: hsl(210, 39%, 93%);
+--background: hsl(210, 39%, 7%);
+--primary: hsl(208, 40%, 73%);
+--secondary: hsl(251, 40%, 34%);
+--accent: hsl(268, 40%, 50%);
+}
+
 *{
-    background-color: rgb(15, 15, 20);
+    background-color: hsl(210, 39%, 7%);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 body{
@@ -7,9 +24,8 @@ body{
 }
 
 nav{
-    color: white;
+    color: var(--text);
     text-align: center;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 nav table{
@@ -18,30 +34,30 @@ nav table{
 }
 
 h1{
-    color:aquamarine;
+    color:var(--accent);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 h2{
-    color: white;
+    color: var(--secondary);
 }
 
 h3{
-    color: white;
+    color: var(--secondary);
 }
 
 h4{
-    color: white;
+    color: var(--secondary);
 }
 
 p{
-    color: white;
+    color: var(--text);
 }
 
 a{
-    color: lightpink;
+    color: var(--secondary);
 }
 
 table{
-    color: white;
+    color: var(--text);
 }
