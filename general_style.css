@@ -61,3 +61,8 @@ a{
 table{
     color: var(--text);
 }
+
+#last_updated_time{
+    color: var(--text);
+    text-align: right;
+}
