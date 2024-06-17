@@ -33,20 +33,29 @@ header h1{
 
 .navBar ul{
     display: flex;
+    flex-flow: row wrap;
     list-style: none;
-    justify-content: space-evenly;
-    padding-left: 0;
-    margin-top: 0;
-    margin-bottom: 0;
+    justify-content: center;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
 }
 
-.navBar ul li a{
+.navBar a {
+    display: block;
+    padding: 0.5em;
     text-decoration: none;
-}
+    color: var(--text);
+  }
 
-.navBar ul li a:hover{
+.navBar a:hover{
     color: var(--text);
     background-color: var(--accent);
+}
+
+#intro_main{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
 }
 
 h1{
@@ -84,5 +93,5 @@ abbr:hover{
 
 #last_updated_time{
     color: var(--text);
-    text-align: right;
+    text-align: center;
 }
