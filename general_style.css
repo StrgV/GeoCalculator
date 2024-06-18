@@ -1,40 +1,65 @@
-/*:root[data-theme="light"] {
-    --text: hsl(210, 39%, 7%);
-    --background: hsl(210, 39%, 93%);
-    --primary: hsl(207, 40%, 27%);
-    --secondary: hsl(250, 40%, 66%);
-    --accent: hsl(268, 40%, 50%);
-  }*/
-
 :root{
 --text: hsl(210, 39%, 93%);
 --background: hsl(210, 39%, 7%);
---primary: hsl(208, 40%, 73%);
---secondary: hsl(251, 40%, 34%);
---accent: hsl(268, 40%, 50%);
+--elevated_background: hsl(196, 36%, 16%);
+--primary: hsl(239, 77%, 72%);
+--secondary: hsl(280, 76%, 65%);
+--accent: hsl(329, 87%, 59%);
 }
 
 *{
-    background-color: hsl(210, 39%, 7%);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 body{
-    margin-left: 5%;
+    background-color: var(--background);
 }
 
 nav{
+    background-color: var(--elevated_background);
     color: var(--text);
     text-align: center;
 }
 
-nav table{
-    margin-left: auto;
-    margin-right: auto;
+header{
+    display: flex;
+    justify-content: center;
+    background-color: var(--primary);
+}
+
+header h1{
+    color: var(--text);
+}
+
+.navBar ul{
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+    justify-content: center;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+
+.navBar a {
+    display: block;
+    padding: 0.5em;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+.navBar a:hover{
+    color: var(--text);
+    background-color: var(--accent);
+}
+
+#intro_main{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
 }
 
 h1{
-    color:var(--accent);
+    color:var(--primary);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -62,11 +87,11 @@ table{
     color: var(--text);
 }
 
-#last_updated_time{
-    color: var(--text);
-    text-align: right;
+abbr:hover{
+    color: lightcoral;
 }
 
-#CoolHover:hover{
-     color: lightsalmon;
+#last_updated_time{
+    color: var(--text);
+    text-align: center;
 }
