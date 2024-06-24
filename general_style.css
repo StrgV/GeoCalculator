@@ -15,12 +15,6 @@ body{
     background-color: var(--background);
 }
 
-nav{
-    background-color: var(--elevated_background);
-    color: var(--text);
-    text-align: center;
-}
-
 header{
     display: flex;
     justify-content: center;
@@ -31,7 +25,13 @@ header h1{
     color: var(--text);
 }
 
-.navBar ul{
+nav{
+    background-color: var(--elevated_background);
+    color: var(--text);
+    text-align: center;
+}
+
+nav ul{
     display: flex;
     flex-flow: row wrap;
     list-style: none;
@@ -40,14 +40,14 @@ header h1{
     margin: 0 0 0 0;
 }
 
-.navBar a {
+nav a {
     display: block;
-    padding: 0.5em;
+    padding: 1em;
     text-decoration: none;
     color: var(--text);
   }
 
-.navBar a:hover{
+nav a:hover{
     color: var(--text);
     background-color: var(--accent);
 }
@@ -79,6 +79,10 @@ p{
     color: var(--text);
 }
 
+div{
+    color: var(--text);
+}
+
 a{
     color: var(--secondary);
 }
@@ -94,4 +98,51 @@ abbr:hover{
 #last_updated_time{
     color: var(--text);
     text-align: center;
+}
+
+@media all and (max-width: 600px){
+    nav{
+        justify-content: end;
+    }
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr 2fr;
+}
+
+.container *{
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.FirstName, .LastName, .Adress{
+    grid-column: 1 / 2;
+}
+
+.FirstName, .Box1{
+    grid-row: 1/2;
+}
+
+.LastName, .Box2{
+    grid-row: 2/3;
+}
+
+.Adress, .Box3{
+    grid-row: 3/4;
+}
+
+.Box1, .Box2, .Box3{
+    grid-column: 2 / 3;
+}
+
+.Department{
+    grid-column: 3 / -1;
+    grid-row: 1/4;
+}
+
+.BottomStuff{
+    grid-column: 2/-1;
+    grid-row: 4/-1;
 }
