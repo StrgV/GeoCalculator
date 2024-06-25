@@ -1,6 +1,6 @@
 :root{
 --text: hsl(210, 39%, 93%);
---background: hsl(210, 39%, 7%);
+--background: hsl(213, 41%, 5%);
 --elevated_background: hsl(196, 36%, 16%);
 --primary: hsl(239, 77%, 72%);
 --secondary: hsl(280, 76%, 65%);
@@ -15,20 +15,36 @@ body{
     background-color: var(--background);
 }
 
+.mainGrid{
+    display: grid;
+    grid-template-columns: 20px 1fr 20px;
+}
+
+main{
+    grid-column: 2/3;
+}
+
 header{
     display: flex;
     justify-content: center;
     background-color: var(--primary);
 }
 
-header h1{
-    color: var(--text);
-}
-
 nav{
     background-color: var(--elevated_background);
     color: var(--text);
     text-align: center;
+}
+
+footer{
+    display: flex;
+    flex-flow: column;
+    color: var(--text);
+    align-items: center;
+}
+
+header h1{
+    color: var(--text);
 }
 
 nav ul{
@@ -50,12 +66,6 @@ nav a {
 nav a:hover{
     color: var(--text);
     background-color: var(--accent);
-}
-
-#intro_main{
-    display: flex;
-    flex-flow: column;
-    align-items: center;
 }
 
 h1{
@@ -95,18 +105,13 @@ abbr:hover{
     color: lightcoral;
 }
 
-#last_updated_time{
-    color: var(--text);
-    text-align: center;
-}
-
 @media all and (max-width: 600px){
     nav{
         justify-content: end;
     }
 }
 
-.container{
+.gridExample{
     display: grid;
     grid-template-columns: 1fr 2fr 2fr;
     grid-template-rows: 1fr 1fr 1fr 2fr;
@@ -115,6 +120,7 @@ abbr:hover{
 .container *{
     padding: 20px;
     border: 1px solid #ccc;
+    border-radius: 10px;
 }
 
 .FirstName, .LastName, .Adress{
