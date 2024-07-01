@@ -27,7 +27,12 @@ main{
 header{
     display: flex;
     justify-content: center;
-    background-color: var(--primary);
+    background-color: var(--primary); /* Initial background color */
+    transition: background-color 0.5s ease; /* Transition effect */
+}
+
+header:hover{
+    background-color: lightcoral;
 }
 
 nav{
