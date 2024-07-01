@@ -111,6 +111,41 @@ abbr:hover{
     }
 }
 
+
+.equationsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 50px;
+    grid-template-rows: repeat(5, 150px);
+    align-items: stretch;
+    justify-items: stretch;
+}
+
+.eq_Title, .eq_Equation, .eq_Image {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--elevated_background);
+    box-sizing: border-box;
+    height: 100%; /* Stellt sicher, dass die Items die volle Höhe des Rasters einnehmen */
+    width: 100%; /* Stellt sicher, dass die Items die volle Breite des Rasters einnehmen */
+}
+
+.eq_Title{
+    grid-column: 1/2;
+}
+
+.eq_Equation{
+    grid-column: 2/3;
+}
+
+.eq_Image{
+    grid-column: 3/-1;
+}
+
+
+
+
+/* Nur das Example Grid styling*/
 .gridExample{
     display: grid;
     grid-template-columns: 1fr 2fr 2fr;
