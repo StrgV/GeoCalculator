@@ -4,6 +4,7 @@
         <title>GeoCalculator</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="general_style.css">
+        <script src="selector.js"></script>
     </head>
     
 <body>
@@ -21,26 +22,45 @@
             <li>
             <a href="Calculator.html">Rechner</a>
             </li>
+            <li>
+                <a href="GridLayoutTest.html">Grid</a>
+            </li>
         </ul>
     </nav>
 
     <div class="mainGrid">
     <main>
         <h1>Formelsammlung</h1>
+
+        <button type="button" onclick="clearMarkings()">clear</button>
+        <ul>
+            <li>
+            <button type="button" onclick="markRechteck()">Rechteck</button>
+            </li>
+            <li>
+            <button type="button" onclick="markQuadrat()">Quadrat</button>
+            </li>
+            <li>
+            <button type="button" onclick="markDreieck()">Dreieck</button>
+            </li>
+            <li>
+            <button type="button" onclick="markViereck()">Viereck</button>
+            </li>
+        </ul>
+
         <h4>2D</h4>
 
     <div class="equationsGrid">  
-        <div class="eq_Title">Rechteck</div>
-        <div class="eq_Equation">A =  a * a</div>
-        <div class="eq_Image"><img src="src\Square.jpg" alt="Rechteck" height="100em"></div>
-    
-        <div class="eq_Title">Quadrat</div>
-        <div class="eq_Equation">A = a * b</div>
-        <div class="eq_Image"><img src="src\Rectan.jpg" alt="Quadrat" height="100em"></div>
-            
-            
-        <div class="eq_Title">Dreieck</div>
-        <div class="eq_Equation">
+        <div class="eq_Title rechteck" id="test">Rechteck</div>
+        <div class="eq_Equation rechteck">A =  a * a</div>
+        <div class="eq_Image rechteck"><img src="src\Square.jpg" alt="Rechteck" height="100em"></div>
+
+        <div class="eq_Title quadrat">Quadrat</div>
+        <div class="eq_Equation quadrat">A = a * b</div>
+        <div class="eq_Image quadrat"><img src="src\Rectan.jpg" alt="Quadrat" height="100em"></div>
+  
+        <div class="eq_Title dreieck">Dreieck</div>
+        <div class="eq_Equation dreieck">
             A = 
             <math>
                 <mfrac>
@@ -50,26 +70,26 @@
             </math>
             * a<sup>2</sup>
         </div>
-        <div class="eq_Image"><img src="src\Triangle.jpg" alt="Dreieck" height="100em"></div>
-            
-            
-        <div class="eq_Title">Viereck</div>
-        <div class="eq_Equation">A = quatsch</div>
+        <div class="eq_Image dreieck"><img src="src\Triangle.jpg" alt="Dreieck" height="100em"></div>
+
+        <div class="eq_Title viereck">Viereck</div>
+        <div class="eq_Equation viereck">A = quatsch</div>
+
     </div>        
 
         <h4>3D</h4>
 
     <div class="equationsGrid"> 
-        <div class="eq_Title">Würfel</div>
-        <div class="eq_Equation">V =  a * a * a</div>
-        <div class="eq_Image"><img src="src\Cube.jpg" alt="Würfel" height="100em"></div>
-    
-        <div class="eq_Title">Quader</div>
-        <div class="eq_Equation">V = a * b * c</div>
-        <div class="eq_Image"><img src="src\Cuboid.jpg" alt="Quader" height="100em"></div>
-    
-        <div class="eq_Title">Pyramide</div>
-        <div class="eq_Equation">
+        <div class="eq_Title wuerfel">Würfel</div>
+        <div class="eq_Equation wuerfel">V =  a * a * a</div>
+        <div class="eq_Image wuerfel"><img src="src\Cube.jpg" alt="Würfel" height="100em"></div>
+      
+        <div class="eq_Title quader">Quader</div>
+        <div class="eq_Equation quader">V = a * b * c</div>
+        <div class="eq_Image quader"><img src="src\Cuboid.jpg" alt="Quader" height="100em"></div>
+
+        <div class="eq_Title pyramide">Pyramide</div>
+        <div class="eq_Equation pyramide">
                 V = <math>
                 <mfrac>
                     <mi>1</mi>
@@ -78,10 +98,10 @@
             </math>
             * A<sub>Grundfläche</sub> * h
         </div>
-        <div class="eq_Image"><img src="src\Pyramid.jpg" alt="Pyramide" height="100em"></div>
-            
-        <div class="eq_Title">Kugel</div>
-        <div class="eq_Equation">
+        <div class="eq_Image pyramide"><img src="src\Pyramid.jpg" alt="Pyramide" height="100em"></div>
+
+        <div class="eq_Title kugel">Kugel</div>
+        <div class="eq_Equation kugel">
             V = 
             <math>
                 <mfrac>
@@ -91,9 +111,9 @@
             </math>
             * r<sup>3</sup> * pi
         </div>
-        <div class="eq_Image"><img src="src\Sphere.jpg" alt="Kugel" height="100em"></div>
+        <div class="eq_Image kugel"><img src="src\Sphere.jpg" alt="Kugel" height="100em"></div>
+        </div>
     </div>
-
     </main>
 </div>
 
@@ -102,7 +122,7 @@
         <p><a href="https://www.formelsammlung-mathe.de/">Formeln</a></p>
         </div id="last_updated_time">
             <time datetime="2024-06-03 00:00">Stand: 03.06.2024</time>
-        <//div>
+        </div>
 
     </footer>
 </body>

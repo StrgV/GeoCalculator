@@ -114,8 +114,8 @@ abbr:hover{
 
 .equationsGrid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 50px;
-    grid-template-rows: repeat(5, 150px);
+    grid-template-columns: 1fr 1fr 1fr 500px;
+    grid-template-rows: repeat(5, 10em);
     align-items: stretch;
     justify-items: stretch;
 }
@@ -124,10 +124,10 @@ abbr:hover{
     display: flex; 
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--elevated_background);
+    border: 1px solid var(--secondary);
     box-sizing: border-box;
-    height: 100%; /* Stellt sicher, dass die Items die volle Höhe des Rasters einnehmen */
-    width: 100%; /* Stellt sicher, dass die Items die volle Breite des Rasters einnehmen */
+    height: 100%;
+    width: 100%; 
 }
 
 .eq_Title{
@@ -139,7 +139,7 @@ abbr:hover{
 }
 
 .eq_Image{
-    grid-column: 3/-1;
+    grid-column: 3/4;
 }
 
 
@@ -150,12 +150,12 @@ abbr:hover{
     display: grid;
     grid-template-columns: 1fr 2fr 2fr;
     grid-template-rows: 1fr 1fr 1fr 2fr;
+
 }
 
-.container *{
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
+.FirstName, .LastName, .Adress, .Box1, .Box2, .Box3, .Department, .BottomStuff{
+    padding: 2em;
+    border: 1px solid white;
 }
 
 .FirstName, .LastName, .Adress{
