@@ -102,8 +102,9 @@ a{
     color: var(--secondary);
 }
 
-table{
-    color: var(--text);
+button{
+    height: 2em;
+    width: 7em;
 }
 
 abbr:hover{
@@ -111,11 +112,20 @@ abbr:hover{
 }
 
 @media all and (max-width: 600px){
-    nav{
-        justify-content: end;
+    nav ul{
+        justify-content: start;
     }
 }
 
+#inhaltsverzeichnis li{
+    display: flex;
+    flex-wrap: row wrap;
+    list-style: none;
+}
+
+#inhaltsverzeichnis li ul li{
+    padding: 1em;
+}
 
 .equationsGrid {
     display: grid;

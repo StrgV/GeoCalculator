@@ -33,24 +33,42 @@
         <h1>Formelsammlung</h1>
 
         <button type="button" onclick="clearMarkings()">clear</button>
-        <ul>
-            <li>
-            <button type="button" onclick="markRechteck()">Rechteck</button>
-            </li>
-            <li>
-            <button type="button" onclick="markQuadrat()">Quadrat</button>
-            </li>
-            <li>
-            <button type="button" onclick="markDreieck()">Dreieck</button>
-            </li>
-            <li>
-            <button type="button" onclick="markViereck()">Viereck</button>
-            </li>
+        <ul id="inhaltsverzeichnis">
+            <li><button type="button" onclick="mark2D()"><strong>2D</strong></button></li>
+            <ul>
+                <li>
+                <button type="button" onclick="markRechteck()">Rechteck</button>
+                </li>
+                <li>
+                <button type="button" onclick="markQuadrat()">Quadrat</button>
+                </li>
+                <li>
+                <button type="button" onclick="markDreieck()">Dreieck</button>
+                </li>
+                <li>
+                <button type="button" onclick="markViereck()">Viereck</button>
+                </li>
+            </ul>
+            <li><button type="button" onclick="mark3D()"><strong>3D</strong></button></li>
+            <ul>
+                <li>
+                <button type="button" onclick="markWuerfel()">Würfel</button>
+                </li>
+                <li>
+                <button type="button" onclick="markQuader()">Quader</button>
+                </li>
+                <li>
+                <button type="button" onclick="markPyramide()">Pyramide</button>
+                </li>
+                <li>
+                <button type="button" onclick="markKugel()">Kugel</button>
+                </li>
+            </ul>
         </ul>
 
-        <h4>2D</h4>
+        <h2>2D</h2>
 
-    <div class="equationsGrid">  
+    <div class="equationsGrid" id="2dGrid">  
         <div class="eq_Title rechteck" id="test">Rechteck</div>
         <div class="eq_Equation rechteck">A =  a * a</div>
         <div class="eq_Image rechteck"><img src="src\Square.jpg" alt="Rechteck" height="100em"></div>
@@ -77,9 +95,9 @@
 
     </div>        
 
-        <h4>3D</h4>
+        <h2>3D</h2>
 
-    <div class="equationsGrid"> 
+    <div class="equationsGrid" id="3dGrid"> 
         <div class="eq_Title wuerfel">Würfel</div>
         <div class="eq_Equation wuerfel">V =  a * a * a</div>
         <div class="eq_Image wuerfel"><img src="src\Cube.jpg" alt="Würfel" height="100em"></div>
