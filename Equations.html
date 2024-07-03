@@ -29,119 +29,116 @@
     </nav>
 
     <div class="mainGrid">
-    <main>
-        <h1>Formelsammlung</h1>
+        <main>
+            <h1>Formelsammlung</h1>
 
-        <button type="button" onclick="clearMarkings()">clear</button>
-        <ul id="inhaltsverzeichnis">
-            <li><button type="button" onclick="mark2D()"><strong>2D</strong></button></li>
-            <ul>
-                <li>
-                <button type="button" onclick="markRechteck()">Rechteck</button>
-                </li>
-                <li>
-                <button type="button" onclick="markQuadrat()">Quadrat</button>
-                </li>
-                <li>
-                <button type="button" onclick="markDreieck()">Dreieck</button>
-                </li>
-                <li>
-                <button type="button" onclick="markViereck()">Viereck</button>
-                </li>
+            <button type="button" onclick="clearMarkings()">clear</button>
+            <ul id="inhaltsverzeichnis">
+                <li><button type="button" onclick="mark2D()"><strong>2D</strong></button></li>
+                <ul>
+                    <li>
+                    <button type="button" onclick="markRechteck()">Rechteck</button>
+                    </li>
+                    <li>
+                    <button type="button" onclick="markQuadrat()">Quadrat</button>
+                    </li>
+                    <li>
+                    <button type="button" onclick="markDreieck()">Dreieck</button>
+                    </li>
+                    <li>
+                    <button type="button" onclick="markViereck()">Viereck</button>
+                    </li>
+                </ul>
+                <li><button type="button" onclick="mark3D()"><strong>3D</strong></button></li>
+                <ul>
+                    <li>
+                    <button type="button" onclick="markWuerfel()">Würfel</button>
+                    </li>
+                    <li>
+                    <button type="button" onclick="markQuader()">Quader</button>
+                    </li>
+                    <li>
+                    <button type="button" onclick="markPyramide()">Pyramide</button>
+                    </li>
+                    <li>
+                    <button type="button" onclick="markKugel()">Kugel</button>
+                    </li>
+                </ul>
             </ul>
-            <li><button type="button" onclick="mark3D()"><strong>3D</strong></button></li>
-            <ul>
-                <li>
-                <button type="button" onclick="markWuerfel()">Würfel</button>
-                </li>
-                <li>
-                <button type="button" onclick="markQuader()">Quader</button>
-                </li>
-                <li>
-                <button type="button" onclick="markPyramide()">Pyramide</button>
-                </li>
-                <li>
-                <button type="button" onclick="markKugel()">Kugel</button>
-                </li>
-            </ul>
-        </ul>
 
         <h2>2D</h2>
 
-    <div class="equationsGrid" id="2dGrid">  
-        <div class="eq_Title rechteck" id="test">Rechteck</div>
-        <div class="eq_Equation rechteck">A =  a * a</div>
-        <div class="eq_Image rechteck"><img src="src\Square.jpg" alt="Rechteck" height="100em"></div>
+        <div class="equationsGrid" id="2dGrid">  
+            <div class="eq_Title rechteck" id="test">Rechteck</div>
+            <div class="eq_Equation rechteck">A =  a * a</div>
+            <div class="eq_Image rechteck"><img src="src\Square.jpg" alt="Rechteck" height="100em"></div>
 
-        <div class="eq_Title quadrat">Quadrat</div>
-        <div class="eq_Equation quadrat">A = a * b</div>
-        <div class="eq_Image quadrat"><img src="src\Rectan.jpg" alt="Quadrat" height="100em"></div>
-  
-        <div class="eq_Title dreieck">Dreieck</div>
-        <div class="eq_Equation dreieck">
-            A = 
-            <math>
-                <mfrac>
-                    <mi>1</mi>
-                    <mi>3</mi>
-                </mfrac>
-            </math>
-            * a<sup>2</sup>
+            <div class="eq_Title quadrat">Quadrat</div>
+            <div class="eq_Equation quadrat">A = a * b</div>
+            <div class="eq_Image quadrat"><img src="src\Rectan.jpg" alt="Quadrat" height="100em"></div>
+    
+            <div class="eq_Title dreieck">Dreieck</div>
+            <div class="eq_Equation dreieck">
+                A = 
+                <math>
+                    <mfrac>
+                        <mi>1</mi>
+                        <mi>3</mi>
+                    </mfrac>
+                </math>
+                * a<sup>2</sup>
+            </div>
+            <div class="eq_Image dreieck"><img src="src\Triangle.jpg" alt="Dreieck" height="100em"></div>
+
+            <div class="eq_Title viereck">Viereck</div>
+            <div class="eq_Equation viereck">A = quatsch</div>
+
+        </div>        
+
+            <h2>3D</h2>
+
+        <div class="equationsGrid" id="3dGrid"> 
+            <div class="eq_Title wuerfel">Würfel</div>
+            <div class="eq_Equation wuerfel">V =  a * a * a</div>
+            <div class="eq_Image wuerfel"><img src="src\Cube.jpg" alt="Würfel" height="100em"></div>
+        
+            <div class="eq_Title quader">Quader</div>
+            <div class="eq_Equation quader">V = a * b * c</div>
+            <div class="eq_Image quader"><img src="src\Cuboid.jpg" alt="Quader" height="100em"></div>
+
+            <div class="eq_Title pyramide">Pyramide</div>
+            <div class="eq_Equation pyramide">
+                    V = <math>
+                    <mfrac>
+                        <mi>1</mi>
+                        <mi>3</mi>
+                    </mfrac>
+                </math>
+                * A<sub>Grundfläche</sub> * h
+            </div>
+            <div class="eq_Image pyramide"><img src="src\Pyramid.jpg" alt="Pyramide" height="100em"></div>
+
+            <div class="eq_Title kugel">Kugel</div>
+            <div class="eq_Equation kugel">
+                V = 
+                <math>
+                    <mfrac>
+                        <mi>1</mi>
+                        <mi>3</mi>
+                    </mfrac>
+                </math>
+                * r<sup>3</sup> * pi
+            </div>
+            <div class="eq_Image kugel"><img src="src\Sphere.jpg" alt="Kugel" height="100em"></div>
         </div>
-        <div class="eq_Image dreieck"><img src="src\Triangle.jpg" alt="Dreieck" height="100em"></div>
-
-        <div class="eq_Title viereck">Viereck</div>
-        <div class="eq_Equation viereck">A = quatsch</div>
-
-    </div>        
-
-        <h2>3D</h2>
-
-    <div class="equationsGrid" id="3dGrid"> 
-        <div class="eq_Title wuerfel">Würfel</div>
-        <div class="eq_Equation wuerfel">V =  a * a * a</div>
-        <div class="eq_Image wuerfel"><img src="src\Cube.jpg" alt="Würfel" height="100em"></div>
-      
-        <div class="eq_Title quader">Quader</div>
-        <div class="eq_Equation quader">V = a * b * c</div>
-        <div class="eq_Image quader"><img src="src\Cuboid.jpg" alt="Quader" height="100em"></div>
-
-        <div class="eq_Title pyramide">Pyramide</div>
-        <div class="eq_Equation pyramide">
-                V = <math>
-                <mfrac>
-                    <mi>1</mi>
-                    <mi>3</mi>
-                </mfrac>
-            </math>
-            * A<sub>Grundfläche</sub> * h
-        </div>
-        <div class="eq_Image pyramide"><img src="src\Pyramid.jpg" alt="Pyramide" height="100em"></div>
-
-        <div class="eq_Title kugel">Kugel</div>
-        <div class="eq_Equation kugel">
-            V = 
-            <math>
-                <mfrac>
-                    <mi>1</mi>
-                    <mi>3</mi>
-                </mfrac>
-            </math>
-            * r<sup>3</sup> * pi
-        </div>
-        <div class="eq_Image kugel"><img src="src\Sphere.jpg" alt="Kugel" height="100em"></div>
-        </div>
+        </main>
     </div>
-    </main>
-</div>
 
     <hr>
     <footer>
         <p><a href="https://www.formelsammlung-mathe.de/">Formeln</a></p>
-        </div id="last_updated_time">
-            <time datetime="2024-06-03 00:00">Stand: 03.06.2024</time>
-        </div>
-
+        <p>© GeoCalculator 2024</p>
+        <time datetime="2024-06-03 00:00">Stand: 03.06.2024</time>
     </footer>
 </body>
 </html>
