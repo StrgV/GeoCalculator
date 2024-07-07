@@ -3,46 +3,9 @@
     <head lang="de">
         <title>GeoCalculator</title>
         <meta charset="UTF-8">
+        <!--Cursor geklaut von hier: https://akatsuki.nekoweb.org/-->
         <link rel="stylesheet" href="general_style.css">
         <script src="cursoreffect.js"></script>
-        <script defer>
-
-            
-    window.addEventListener("load", (event) => {
-        if (localStorage.getItem("cursorSetting") == "disable") {
-            return;
-        }
-
-        cursoreffects.fairyDustCursor({
-            colors: ["#5BCEFA", "#F5A9B8", "#FFFFFF"],
-        });
-        cursoreffects.rainbowCursor({
-            colors: ["lightblue", "pink", "white", "pink", "lightblue"],
-            length: 50,
-            size: 5
-        });
-    });
-
-    window.onload = function setUpEnableCursor() {
-        // Footer toggle cursor switch    
-        /** @type {HTMLInputElement} */
-        let enableCursor = document.getElementById("enablecursor");
-        enableCursor.checked = localStorage.getItem("cursorSetting") != "disable";
-        enableCursor.onchange = function toggleCursor() {
-            if (enableCursor.checked) {
-                if (localStorage.getItem("cursorSetting") != null) {
-                    localStorage.removeItem("cursorSetting");
-                }
-            }
-            else {
-                localStorage.setItem("cursorSetting", "disable");
-            }
-
-            location.reload();
-        }
-    }
-
-        </script>
     </head>
     
 <body>
