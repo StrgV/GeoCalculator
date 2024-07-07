@@ -105,6 +105,7 @@ a{
 button{
     height: 2em;
     width: 7em;
+    border-radius: 10px;
 }
 
 abbr:hover{
@@ -133,7 +134,6 @@ abbr:hover{
     list-style: none;
 }
 
-
 .equationsGrid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -150,6 +150,10 @@ abbr:hover{
     box-sizing: border-box;
     height: 100%;
     width: 100%; 
+    transition: background-color 0.5s ease;
+}
+
+.eq_Title:hover, .eq_Equation:hover, .eq_Image:hover{
     background-color: var(--elevated_background);
 }
 
