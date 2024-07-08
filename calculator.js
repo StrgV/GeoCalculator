@@ -90,52 +90,105 @@ function showInputs() {
     }
 }
 
+function showValueWarning() {
+    alert("Bitte gebe valide Werte für die Berechnung ein.");
+}
+
 function calculate() {
     const selectedElement = document.getElementById('element-select').value;
     let result = '';
+
+    function validateInput(value) {
+        return !(isNaN(value) || value <= 0);
+    }
 
     switch (selectedElement) {
         case 'rechteck':
             const rectLength = parseFloat(document.getElementById('rect-length').value);
             const rectWidth = parseFloat(document.getElementById('rect-width').value);
-            result = `Fläche des Rechtecks: ${rectLength * rectWidth}`;
+            if (validateInput(rectLength) && validateInput(rectWidth)) {
+                result = `Fläche des Rechtecks: ${rectLength * rectWidth}`;
+            } else {
+                showValueWarning();
+                return;
+            }
             break;
         case 'quadrat':
             const squareSide = parseFloat(document.getElementById('square-side').value);
-            result = `Fläche des Quadrats: ${squareSide * squareSide}`;
+            if (validateInput(squareSide)) {
+                result = `Fläche des Quadrats: ${squareSide * squareSide}`;
+            } else {
+                showValueWarning();
+                return;
+            }
             break;
         case 'dreieck':
             const triangleBase = parseFloat(document.getElementById('triangle-base').value);
             const triangleHeight = parseFloat(document.getElementById('triangle-height').value);
-            result = `Fläche des Dreiecks: ${(triangleBase * triangleHeight) / 2}`;
+            if (validateInput(triangleBase) && validateInput(triangleHeight)) {
+                result = `Fläche des Dreiecks: ${(triangleBase * triangleHeight) / 2}`;
+            } else {
+                showValueWarning();
+                return;
+            }
             break;
         case 'kreis':
             const circleRadius = parseFloat(document.getElementById('circle-radius').value);
-            result = `Fläche des Kreises: ${Math.PI * circleRadius * circleRadius}`;
+            if (validateInput(circleRadius)) {
+                result = `Fläche des Kreises: ${Math.PI * circleRadius * circleRadius}`;
+            } else {
+                showValueWarning();
+                return;
+            }
             break;
         case 'viereck':
             const polygonSides = parseFloat(document.getElementById('polygon-sides').value);
             const polygonLength = parseFloat(document.getElementById('polygon-length').value);
-            result = `Umfang des Vierecks: ${polygonSides * polygonLength}`;
+            if (validateInput(polygonSides) && validateInput(polygonLength)) {
+                result = `Umfang des Vierecks: ${polygonSides * polygonLength}`;
+            } else {
+                showValueWarning();
+                return;
+            }
             break;
         case 'würfel':
             const cubeSide = parseFloat(document.getElementById('cube-side').value);
-            result = `Volumen des Würfels: ${Math.pow(cubeSide, 3)}`;
+            if (validateInput(cubeSide)) {
+                result = `Volumen des Würfels: ${Math.pow(cubeSide, 3)}`;
+            } else {
+                showValueWarning();
+                return;
+            }
             break;
         case 'quader':
             const cuboidLength = parseFloat(document.getElementById('cuboid-length').value);
             const cuboidWidth = parseFloat(document.getElementById('cuboid-width').value);
             const cuboidHeight = parseFloat(document.getElementById('cuboid-height').value);
-            result = `Volumen des Quaders: ${cuboidLength * cuboidWidth * cuboidHeight}`;
+            if (validateInput(cuboidLength) && validateInput(cuboidWidth) && validateInput(cuboidHeight)) {
+                result = `Volumen des Quaders: ${cuboidLength * cuboidWidth * cuboidHeight}`;
+            } else {
+                showValueWarning();
+                return;
+            }
             break;
         case 'pyramide':
             const pyramidBase = parseFloat(document.getElementById('pyramid-base').value);
             const pyramidHeight = parseFloat(document.getElementById('pyramid-height').value);
-            result = `Volumen der Pyramide: ${(Math.pow(pyramidBase, 2) * pyramidHeight) / 3}`;
+            if (validateInput(pyramidBase) && validateInput(pyramidHeight)) {
+                result = `Volumen der Pyramide: ${(Math.pow(pyramidBase, 2) * pyramidHeight) / 3}`;
+            } else {
+                showValueWarning();
+                return;
+            }
             break;
         case 'kugel':
             const sphereRadius = parseFloat(document.getElementById('sphere-radius').value);
-            result = `Volumen der Kugel: ${(4 / 3) * Math.PI * Math.pow(sphereRadius, 3)}`;
+            if (validateInput(sphereRadius)) {
+                result = `Volumen der Kugel: ${(4 / 3) * Math.PI * Math.pow(sphereRadius, 3)}`;
+            } else {
+                showValueWarning();
+                return;
+            }
             break;
     }
 
