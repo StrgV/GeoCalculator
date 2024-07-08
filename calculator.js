@@ -1,29 +1,91 @@
+function createInput(labelText, inputId) {
+    const label = document.createElement('label');
+    label.setAttribute('for', inputId);
+    label.textContent = labelText;
 
-// calculation of factorial with input and output
-function calculate() {
-    let result; // the result of the calculation
-    let resultString; // the output string to be shown
-    // get input value
-    let inputValue = document.getElementById("n").value;
-    // check input value
-    if (isNaN(inputValue) || inputValue <= 0 || inputValue >= 170) {
-        // calculation impossible
-        resultString = "Sorry, calculation is impossible!";
-    } else {
-        // calculate factorial
-        result = factorialOf(inputValue);
-        // generate output string
-        resultString = "The factorial of " + inputValue + " is " + result;
-    }
-    // write result to html
-    document.getElementById("resultText").innerHTML = resultString;
+    const input = document.createElement('input');
+    input.setAttribute('type', 'number');
+    input.setAttribute('id', inputId);
+    input.setAttribute('name', inputId);
+
+    return { label, input };
 }
-// returns the factorial n! of a given number n
-function factorialOf(n) {
-    let result = 1;
-    // calculate n! = 2*3*4*...*n
-    for (let i = 2; i<=n; i++) {
-        result = result * i;
+
+function showInputs() {
+    const container = document.getElementById('input-container');
+    const selectedElement = document.getElementById('element-select').value;
+
+    container.innerHTML = ''; // Clear previous inputs 
+
+    switch (selectedElement) {
+        case 'quadrat':
+            var squareSide = createInput('Seitenlänge:', 'square-side');
+            container.appendChild(squareSide.label);
+            container.appendChild(squareSide.input);
+            break;
+        case 'rechteck':
+            var rectLength = createInput('Länge:', 'rect-length');
+            var rectWidth = createInput('Breite:', 'rect-width');
+            container.appendChild(rectLength.label);
+            container.appendChild(rectLength.input);
+            container.appendChild(document.createElement('br'));
+            container.appendChild(rectWidth.label);
+            container.appendChild(rectWidth.input);
+            break;
+        case 'dreieck':
+            var triangleBase = createInput('Grundlinie:', 'triangle-base');
+            var triangleHeight = createInput('Höhe:', 'triangle-height');
+            container.appendChild(triangleBase.label);
+            container.appendChild(triangleBase.input);
+            container.appendChild(document.createElement('br'));
+            container.appendChild(triangleHeight.label);
+            container.appendChild(triangleHeight.input);
+            break;
+        case 'kreis':
+            var circleRadius = createInput('Radius:', 'circle-radius');
+            container.appendChild(circleRadius.label);
+            container.appendChild(circleRadius.input);
+            break;
+        case 'viereck':
+            var polygonSides = createInput('Anzahl der Seiten:', 'polygon-sides');
+            var polygonLength = createInput('Seitenlänge:', 'polygon-length');
+            container.appendChild(polygonSides.label);
+            container.appendChild(polygonSides.input);
+            container.appendChild(document.createElement('br'));
+            container.appendChild(polygonLength.label);
+            container.appendChild(polygonLength.input);
+            break;
+        case 'würfel':
+            var cubeSide = createInput('Seitenlänge:', 'cube-side');
+            container.appendChild(cubeSide.label);
+            container.appendChild(cubeSide.input);
+            break;
+        case 'quader':
+            var cuboidLength = createInput('Länge:', 'cuboid-length');
+            var cuboidWidth = createInput('Breite:', 'cuboid-width');
+            var cuboidHeight = createInput('Höhe:', 'cuboid-height');
+            container.appendChild(cuboidLength.label);
+            container.appendChild(cuboidLength.input);
+            container.appendChild(document.createElement('br'));
+            container.appendChild(cuboidWidth.label);
+            container.appendChild(cuboidWidth.input);
+            container.appendChild(document.createElement('br'));
+            container.appendChild(cuboidHeight.label);
+            container.appendChild(cuboidHeight.input);
+            break;
+        case 'pyramide':
+            var pyramidBase = createInput('Grundlinie:', 'pyramid-base');
+            var pyramidHeight = createInput('Höhe:', 'pyramid-height');
+            container.appendChild(pyramidBase.label);
+            container.appendChild(pyramidBase.input);
+            container.appendChild(document.createElement('br'));
+            container.appendChild(pyramidHeight.label);
+            container.appendChild(pyramidHeight.input);
+            break;
+        case 'kugel':
+            var sphereRadius = createInput('Radius:', 'sphere-radius');
+            container.appendChild(sphereRadius.label);
+            container.appendChild(sphereRadius.input);
+            break;
     }
-    return result;
 }

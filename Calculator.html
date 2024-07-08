@@ -23,7 +23,7 @@
             <a href="Calculator.html">Rechner</a>
             </li>
             <li>
-                <a href="GridLayoutTest.html">Grid</a>
+            <a href="GridLayoutTest.html">Grid</a>
             </li>
         </ul>
     </nav>
@@ -31,27 +31,36 @@
 <div class="mainGrid">
     <main>
         <h1>Rechner</h1>
-        <input id="n" type="text"></input>
+        <!-- <input id="n" type="text"></input>
         <button type="button" onclick="calculate()">Calculate!</button>
-        <p id="resultText"></p>
+        <p id="resultText"></p> -->
 
-        <label for="element-select">Wähle die zu berechnende Form:</label>
-        <select id="element-select" name="element-select">
-            <optgroup label="2D Elemente">
-                <option value="rechteck">Rechteck</option>
-                <option value="quadrat">Quadrat</option>
-                <option value="dreieck">Dreieck</option>
-                <option value="kreis">Kreis</option>
-                <option value="viereck">Viereck</option>
-            </optgroup>
-            <optgroup label="3D Elemente">
-                <option value="würfel">Würfel</option>
-                <option value="quader">Quader</option>
-                <option value="pyramide">Pyramide</option>
-                <option value="kugel">Kugel</option>
-            </optgroup>
-        </select>
-
+        <div id="select-container">
+            <div id="select-container">
+                <label for="element-select">Wähle die zu berechnende Form:</label>
+                <select id="element-select" name="element-select" onchange="showInputs()">
+                    <optgroup label="2D Elemente">
+                        <option value="quadrat">Quadrat</option>
+                        <option value="rechteck">Rechteck</option>
+                        <option value="dreieck">Dreieck</option>
+                        <option value="kreis">Kreis</option>
+                        <option value="viereck">Viereck</option>
+                    </optgroup>
+                    <optgroup label="3D Elemente">
+                        <option value="würfel">Würfel</option>
+                        <option value="quader">Quader</option>
+                        <option value="pyramide">Pyramide</option>
+                        <option value="kugel">Kugel</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div id="input-container">
+    
+            </div>
+        </div>
+        <div id="result-container">
+            <p id="resultText"></p>
+        </div>
     </main>
 </div>
     <hr>

@@ -108,6 +108,11 @@ button{
     border-radius: 10px;
 }
 
+select{
+    color: var(--text);
+    background-color: var(--elevated_background);
+}
+
 abbr:hover{
     color: lightcoral;
 }
@@ -169,7 +174,24 @@ abbr:hover{
     grid-column: 3/4;
 }
 
+.calculatorContainer{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
 
+#select-container{
+    display: flex;
+    width: 50%%;
+    margin-right: 0.5em;
+}
+
+#input-container{
+    display: flex;
+    width: 65%;
+    margin-left: 0.5em;
+    justify-content: space-evenly;
+}
 
 
 /* Nur das Example Grid styling*/
