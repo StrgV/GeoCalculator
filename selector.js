@@ -6,6 +6,7 @@ function markBordersInColor(elements, color){
 
 function markSectionBorders(element, color){
     element.style.border = '3px solid red';
+    element.style.borderRadius = "15px"
 }
 
 function clearMarkings(){
@@ -62,8 +63,8 @@ function markKugel(){
 }
 
 function mark2D(){
-    let element = document.getElementById('2dGrid');
-    markSectionBorders(element)
+    var element = document.getElementById('2dGrid');
+    markSectionBorders(element);
 }
 
 function mark3D(){

@@ -17,7 +17,7 @@ body{
 
 .mainGrid{
     display: grid;
-    grid-template-columns: 20px 1fr 20px;
+    grid-template-columns: 10% 1fr 10%;
 }
 
 main{
@@ -105,6 +105,7 @@ a{
 button{
     height: 2em;
     width: 7em;
+    border-radius: 10px;
 }
 
 abbr:hover{
@@ -133,14 +134,11 @@ abbr:hover{
     list-style: none;
 }
 
-
 .equationsGrid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: repeat(4, 10em);
-    align-items: stretch;
-    justify-items: stretch;
-    margin-right: 50%;
+    gap: 1em;
 }
 
 .eq_Title, .eq_Equation, .eq_Image {
@@ -148,9 +146,15 @@ abbr:hover{
     align-items: center;
     justify-content: center;
     border: 1px solid var(--secondary);
+    border-radius: 10px;
     box-sizing: border-box;
     height: 100%;
     width: 100%; 
+    transition: background-color 0.5s ease;
+}
+
+.eq_Title:hover, .eq_Equation:hover, .eq_Image:hover{
+    background-color: var(--elevated_background);
 }
 
 .eq_Title{
