@@ -15,14 +15,9 @@ function showInputs() {
     const container = document.getElementById('input-container');
     const selectedElement = document.getElementById('element-select').value;
 
-    container.innerHTML = ''; // Clear previous inputs 
+    container.innerHTML = ''; // Clear previous inputs
 
     switch (selectedElement) {
-        case 'quadrat':
-            var squareSide = createInput('Seitenlänge:', 'square-side');
-            container.appendChild(squareSide.label);
-            container.appendChild(squareSide.input);
-            break;
         case 'rechteck':
             var rectLength = createInput('Länge:', 'rect-length');
             var rectWidth = createInput('Breite:', 'rect-width');
@@ -31,6 +26,11 @@ function showInputs() {
             container.appendChild(document.createElement('br'));
             container.appendChild(rectWidth.label);
             container.appendChild(rectWidth.input);
+            break;
+        case 'quadrat':
+            var squareSide = createInput('Seitenlänge:', 'square-side');
+            container.appendChild(squareSide.label);
+            container.appendChild(squareSide.input);
             break;
         case 'dreieck':
             var triangleBase = createInput('Grundlinie:', 'triangle-base');
@@ -88,4 +88,56 @@ function showInputs() {
             container.appendChild(sphereRadius.input);
             break;
     }
+}
+
+function calculate() {
+    const selectedElement = document.getElementById('element-select').value;
+    let result = '';
+
+    switch (selectedElement) {
+        case 'rechteck':
+            const rectLength = parseFloat(document.getElementById('rect-length').value);
+            const rectWidth = parseFloat(document.getElementById('rect-width').value);
+            result = `Fläche des Rechtecks: ${rectLength * rectWidth}`;
+            break;
+        case 'quadrat':
+            const squareSide = parseFloat(document.getElementById('square-side').value);
+            result = `Fläche des Quadrats: ${squareSide * squareSide}`;
+            break;
+        case 'dreieck':
+            const triangleBase = parseFloat(document.getElementById('triangle-base').value);
+            const triangleHeight = parseFloat(document.getElementById('triangle-height').value);
+            result = `Fläche des Dreiecks: ${(triangleBase * triangleHeight) / 2}`;
+            break;
+        case 'kreis':
+            const circleRadius = parseFloat(document.getElementById('circle-radius').value);
+            result = `Fläche des Kreises: ${Math.PI * circleRadius * circleRadius}`;
+            break;
+        case 'viereck':
+            const polygonSides = parseFloat(document.getElementById('polygon-sides').value);
+            const polygonLength = parseFloat(document.getElementById('polygon-length').value);
+            result = `Umfang des Vierecks: ${polygonSides * polygonLength}`;
+            break;
+        case 'würfel':
+            const cubeSide = parseFloat(document.getElementById('cube-side').value);
+            result = `Volumen des Würfels: ${Math.pow(cubeSide, 3)}`;
+            break;
+        case 'quader':
+            const cuboidLength = parseFloat(document.getElementById('cuboid-length').value);
+            const cuboidWidth = parseFloat(document.getElementById('cuboid-width').value);
+            const cuboidHeight = parseFloat(document.getElementById('cuboid-height').value);
+            result = `Volumen des Quaders: ${cuboidLength * cuboidWidth * cuboidHeight}`;
+            break;
+        case 'pyramide':
+            const pyramidBase = parseFloat(document.getElementById('pyramid-base').value);
+            const pyramidHeight = parseFloat(document.getElementById('pyramid-height').value);
+            result = `Volumen der Pyramide: ${(Math.pow(pyramidBase, 2) * pyramidHeight) / 3}`;
+            break;
+        case 'kugel':
+            const sphereRadius = parseFloat(document.getElementById('sphere-radius').value);
+            result = `Volumen der Kugel: ${(4 / 3) * Math.PI * Math.pow(sphereRadius, 3)}`;
+            break;
+    }
+
+    document.getElementById('resultText').textContent = result;
 }
