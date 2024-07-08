@@ -4,6 +4,7 @@
         <title>GeoCalculator</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="general_style.css">
+        <script src="calculator.js"></script>
     </head>
     
 <body>
@@ -30,9 +31,27 @@
 <div class="mainGrid">
     <main>
         <h1>Rechner</h1>
-        <p>
-            1+1=2
-        </p>
+        <input id="n" type="text"></input>
+        <button type="button" onclick="calculate()">Calculate!</button>
+        <p id="resultText"></p>
+
+        <label for="element-select">Wähle die zu berechnende Form:</label>
+        <select id="element-select" name="element-select">
+            <optgroup label="2D Elemente">
+                <option value="rechteck">Rechteck</option>
+                <option value="quadrat">Quadrat</option>
+                <option value="dreieck">Dreieck</option>
+                <option value="kreis">Kreis</option>
+                <option value="viereck">Viereck</option>
+            </optgroup>
+            <optgroup label="3D Elemente">
+                <option value="würfel">Würfel</option>
+                <option value="quader">Quader</option>
+                <option value="pyramide">Pyramide</option>
+                <option value="kugel">Kugel</option>
+            </optgroup>
+        </select>
+
     </main>
 </div>
     <hr>
@@ -40,7 +59,5 @@
         <p>© GeoCalculator 2024</p>
         <time datetime="2024-06-03 00:00">Stand: 03.06.2024</time>
     </footer>
-
-
 </body>
 </html>
