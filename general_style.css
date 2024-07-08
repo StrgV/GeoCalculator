@@ -110,6 +110,10 @@ select, input{
     text-align: center;
 }
 
+label{
+    margin-right: 1em;
+}
+
 abbr:hover{
     color: lightcoral;
 }
@@ -173,7 +177,7 @@ abbr:hover{
 
 #calculator-container{
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column;
     justify-content: center;
 }
 
@@ -186,10 +190,8 @@ abbr:hover{
 
 #input-container{
     display: flex;
-    width: 65%;
-    margin-left: 0.5em;
-    justify-content: space-evenly;
-    margin: 1em 0;
+    flex-flow: column;
+    align-items: center;
 }
 
 #result-container{
