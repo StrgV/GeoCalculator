@@ -31,6 +31,12 @@ header{
     transition: background-color 0.5s ease; /* Transition effect */
 }
 
+header h1 a {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--text);
+    text-decoration: none;
+}
+
 header:hover{
     background-color: lightcoral;
 }
@@ -133,7 +139,7 @@ abbr:hover{
 .equationsGrid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: repeat(4, 10em);
+    grid-template-rows: repeat(4, 8em);
     gap: 1em;
 }
 
@@ -174,6 +180,7 @@ abbr:hover{
 #select-container{
     display: flex;
     margin-right: 0.5em;
+    margin: 1em 0;
 }
 
 
@@ -182,6 +189,7 @@ abbr:hover{
     width: 65%;
     margin-left: 0.5em;
     justify-content: space-evenly;
+    margin: 1em 0;
 }
 
 #result-container{
