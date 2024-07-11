@@ -37,103 +37,208 @@
                 <li><button type="button" onclick="mark2D()"><strong>2D</strong></button></li>
                 <ul>
                     <li>
-                    <button type="button" onclick="markRechteck()">Rechteck</button>
+                        <button type="button" onclick="markSquare()">Quadrat</button>
                     </li>
                     <li>
-                    <button type="button" onclick="markQuadrat()">Quadrat</button>
+                        <button type="button" onclick="markRectangle()">Rechteck</button>
                     </li>
                     <li>
-                    <button type="button" onclick="markDreieck()">Dreieck</button>
+                        <button type="button" onclick="markTriangle()">Dreieck</button>
                     </li>
                     <li>
-                    <button type="button" onclick="markViereck()">Viereck</button>
+                        <button type="button" onclick="markTrapezoid()">Trapez</button>
                     </li>
                 </ul>
                 <li><button type="button" onclick="mark3D()"><strong>3D</strong></button></li>
                 <ul>
                     <li>
-                    <button type="button" onclick="markWuerfel()">Würfel</button>
+                        <button type="button" onclick="markCube()">Würfel</button>
                     </li>
                     <li>
-                    <button type="button" onclick="markQuader()">Quader</button>
+                        <button type="button" onclick="markCuboid()">Quader</button>
                     </li>
                     <li>
-                    <button type="button" onclick="markPyramide()">Pyramide</button>
+                        <button type="button" onclick="markPyramid3()">Pyramide (3)</button>
                     </li>
                     <li>
-                    <button type="button" onclick="markKugel()">Kugel</button>
+                        <button type="button" onclick="markPyramid4()">Pyramide (4)</button>
+                    </li>
+                    <li>
+                        <button type="button" onclick="markSphere()">Kugel</button>
                     </li>
                 </ul>
             </ul>
 
         <h2>2D</h2>
 
-        <div class="equationsGrid" id="2dGrid">  
-            <div class="eq_Title rechteck" id="test">Rechteck</div>
-            <div class="eq_Equation rechteck">A =  a * a</div>
-            <div class="eq_Image rechteck"><img src="src\Square.jpg" alt="Rechteck" height="100em"></div>
-
-            <div class="eq_Title quadrat">Quadrat</div>
-            <div class="eq_Equation quadrat">A = a * b</div>
-            <div class="eq_Image quadrat"><img src="src\Rectan.jpg" alt="Quadrat" height="100em"></div>
-    
-            <div class="eq_Title dreieck">Dreieck</div>
-            <div class="eq_Equation dreieck">
-                A = 
+        <div id="_2dGrid">  
+            <div class="eq_Title square" id="test">Quadrat</div>
+            <div class="eq_Equation square"> 
                 <math>
-                    <mfrac>
-                        <mi>1</mi>
-                        <mi>3</mi>
-                    </mfrac>
-                </math>
-                * a<sup>2</sup>
+                <mrow>
+                <mi>A</mi>
+                <mo>=</mo>
+                <msup>
+                    <mi>a</mi>
+                    <mn>2</mn>
+                </msup>
+                </mrow>
+            </math>
             </div>
-            <div class="eq_Image dreieck"><img src="src\Triangle.jpg" alt="Dreieck" height="100em"></div>
+            <div class="eq_Image square"><img src="src\Square.jpg" alt="square" height="100em"></div>
 
-            <div class="eq_Title viereck">Viereck</div>
-            <div class="eq_Equation viereck">A = quatsch</div>
+            <div class="eq_Title rectangle">Rechteck</div>
+            <div class="eq_Equation rectangle">
+                <math>
+                    <mrow>
+                        <mi>A</mi>
+                        <mo>=</mo>
+                        <mi>a</mi>
+                        <mo>&#xB7;</mo>
+                        <mi>b</mi>
+                    </mrow>
+                </math>
+            </div>
+            <div class="eq_Image rectangle"><img src="src\Rectan.jpg" alt="rectangle" height="100em"></div>
+    
+            <div class="eq_Title triangle">Dreieck</div>
+            <div class="eq_Equation triangle">
 
+                <math>
+                    <mrow>
+                        <mi>A</mi>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mn>1</mn>
+                        <mn>2</mn>
+                    </mfrac>
+                    <mo>&#xB7;</mo>
+                    <mi>a</mi>
+                    <mo>&#xB7;</mo>
+                    <mi>h</mi>
+                </mrow>
+                </math>
+            </div>
+            <div class="eq_Image triangle"><img src="src\Triangle.jpg" alt="triangle" height="100em"></div>
+
+            <div class="eq_Title trapezoid">Trapez</div>
+            <div class="eq_Equation trapezoid">
+                <math>
+                    <mrow>
+                        <mi>A</mi>
+                        <mo>=</mo>
+                        <mfrac>
+                            <mrow>
+                                <mo>(</mo>
+                                <mi>a</mi>
+                                <mo>+</mo>
+                                <mi>c</mi>
+                                <mo>)</mo>
+                            </mrow>
+                            <mn>2</mn>
+                        </mfrac>
+                        <mo>&#xB7;</mo>
+                        <mi>h</mi>
+                    </mrow>
+                </math>
+            </div>
+            <div class="eq_Image trapezoid"><img src="src\Trapezoid.jpg" alt="Trapez" height="100em"></div>
         </div>        
 
             <h2>3D</h2>
 
-        <div class="equationsGrid" id="3dGrid"> 
-            <div class="eq_Title wuerfel">Würfel</div>
-            <div class="eq_Equation wuerfel">V =  a * a * a</div>
-            <div class="eq_Image wuerfel"><img src="src\Cube.jpg" alt="Würfel" height="100em"></div>
-        
-            <div class="eq_Title quader">Quader</div>
-            <div class="eq_Equation quader">V = a * b * c</div>
-            <div class="eq_Image quader"><img src="src\Cuboid.jpg" alt="Quader" height="100em"></div>
-
-            <div class="eq_Title pyramide">Pyramide</div>
-            <div class="eq_Equation pyramide">
-                    V = <math>
-                    <mfrac>
-                        <mi>1</mi>
-                        <mi>3</mi>
-                    </mfrac>
-                </math>
-                * A<sub>Grundfläche</sub> * h
-            </div>
-            <div class="eq_Image pyramide"><img src="src\Pyramid.jpg" alt="Pyramide" height="100em"></div>
-
-            <div class="eq_Title kugel">Kugel</div>
-            <div class="eq_Equation kugel">
-                V = 
+        <div id="_3dGrid"> 
+            <div class="eq_Title cube">Würfel</div>
+            <div class="eq_Equation cube">
                 <math>
-                    <mfrac>
-                        <mi>1</mi>
-                        <mi>3</mi>
-                    </mfrac>
+                    <mrow>
+                        <mi>V</mi>
+                        <mo>=</mo>
+                        <msup>
+                            <mi>a</mi>
+                            <mn>3</mn>
+                        </msup>
+                    </mrow>
                 </math>
-                * r<sup>3</sup> * pi
             </div>
-            <div class="eq_Image kugel"><img src="src\Sphere.jpg" alt="Kugel" height="100em"></div>
-        </div>
-        </main>
-    </div>
+            <div class="eq_Image cube"><img src="src\Cube.jpg" alt="cube" height="100em"></div>
+        
+            <div class="eq_Title cuboid">Quader</div>
+            <div class="eq_Equation cuboid">
+                <math>
+                <mrow>
+                    <mi>V</mi>
+                    <mo>=</mo>
+                    <mi>a</mi>
+                    <mo>&#xB7;</mo>
+                    <mi>b</mi>
+                    <mo>&#xB7;</mo>
+                    <mi>c</mi>
+                    </mrow>
+                </math>
+            </div>
+            <div class="eq_Image cuboid"><img src="src\Cuboid.jpg" alt="cuboid" height="100em"></div>
 
+            <div class="eq_Title pyramid3">Pyramide (3)</div>
+                <div class="eq_Equation pyramid3">
+                    <math>
+                        <mrow>
+                            <mi>V</mi>
+                            <mo>=</mo>
+                            <mfrac>
+                                <mn>1</mn>
+                                <mn>3</mn>
+                            </mfrac>
+                            <mo>&#xB7;</mo>
+                            <mi>A</mi>
+                            <mo>&#xB7;</mo>
+                            <mi>h</mi>
+                        </mrow>
+                    </math>
+                </div>
+                <div class="eq_Image pyramid3"><img src="src/Pyramid3.jpg" alt="pyramid with 3 sided base" height="100em"></div>
+
+                <div class="eq_Title pyramid4">Pyramide (4)</div>
+                <div class="eq_Equation pyramid4">
+                    <math>
+                        <mrow>
+                            <mi>V</mi>
+                            <mo>=</mo>
+                            <mfrac>
+                                <mn>1</mn>
+                                <mn>3</mn>
+                            </mfrac>
+                            <mo>&#xB7;</mo>
+                            <mi>A</mi>
+                            <mo>&#xB7;</mo>
+                            <mi>h</mi>
+                        </mrow>
+                    </math>
+                </div>
+                <div class="eq_Image pyramid4"><img src="src/Pyramid4.jpg" alt="pyramid with 4 sided base" height="100em"></div>
+
+                <div class="eq_Title sphere">Kugel</div>
+                <div class="eq_Equation sphere">
+                    <math>
+                        <mrow>
+                            <mi>V</mi>
+                            <mo>=</mo>
+                            <mfrac>
+                                <mn>4</mn>
+                                <mn>3</mn>
+                            </mfrac>
+                            <mo>&#xB7;</mo>
+                            <mi>&#x3C0;</mi>
+                            <mo>&#xB7;</mo>
+                            <msup>
+                                <mi>r</mi>
+                                <mn>3</mn>
+                            </msup>
+                        </mrow>
+                    </math>
+                </div>
+                <div class="eq_Image sphere"><img src="src/Sphere.jpg" alt="Kugel" height="100em"></div>
+        </div>
     <hr>
     <footer>
         <p><a href="https://www.formelsammlung-mathe.de/">Formeln</a></p>

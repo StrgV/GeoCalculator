@@ -1,73 +1,78 @@
-function markBordersInColor(elements, color){
+function markBordersInColor(elements, color) {
     elements.forEach(element => {
         element.style.borderColor = color;
     });
 }
 
-function markSectionBorders(element, color){
-    element.style.border = '3px solid red';
-    element.style.borderRadius = "15px"
+function markSectionBorders(element, color = 'red') {
+    element.style.border = '3px solid ' + color;
+    element.style.borderRadius = "15px";
 }
 
-function clearMarkings(){
-    var elements = document.querySelectorAll('div.eq_Title');
+function clearMarkings() {
+    let elements = document.querySelectorAll('div.eq_Title');
     markBordersInColor(elements, "hsl(280, 76%, 65%)");
     elements = document.querySelectorAll('div.eq_Equation');
     markBordersInColor(elements, "hsl(280, 76%, 65%)");
     elements = document.querySelectorAll('div.eq_Image');
     markBordersInColor(elements, "hsl(280, 76%, 65%)");
-    elements = document.getElementById('2dGrid');
-    elements.style.border = 'none';
-    elements = document.getElementById('3dGrid');
-    elements.style.border = 'none';
+    let element = document.getElementById('2dGrid');
+    if (element) element.style.border = 'none';
+    element = document.getElementById('3dGrid');
+    if (element) element.style.border = 'none';
 }
 
-function markRechteck(){
-    let elements = document.querySelectorAll('div.rechteck');
+function markSquare() {
+    let elements = document.querySelectorAll('div.square');
     markBordersInColor(elements, "red");
 }
 
-function markQuadrat(){
-    let elements = document.querySelectorAll('div.quadrat');
+function markRectangle() {
+    let elements = document.querySelectorAll('div.rectangle');
     markBordersInColor(elements, "red");
 }
 
-function markDreieck(){
-    let elements = document.querySelectorAll('div.dreieck');
+function markTriangle() {
+    let elements = document.querySelectorAll('div.triangle');
     markBordersInColor(elements, "red");
 }
 
-function markViereck(){
-    let elements = document.querySelectorAll('div.viereck');
+function markTrapezoid() {
+    let elements = document.querySelectorAll('div.trapezoid');
     markBordersInColor(elements, "red");
 }
 
-function markWuerfel(){
-    let elements = document.querySelectorAll('div.wuerfel');
+function markCube() {
+    let elements = document.querySelectorAll('div.cube');
     markBordersInColor(elements, "red");
 }
 
-function markQuader(){
-    let elements = document.querySelectorAll('div.quader');
+function markCuboid() {
+    let elements = document.querySelectorAll('div.cuboid');
     markBordersInColor(elements, "red");
 }
 
-function markPyramide(){
-    let elements = document.querySelectorAll('div.pyramide');
+function markPyramid3() {
+    let elements = document.querySelectorAll('div.pyramid3');
     markBordersInColor(elements, "red");
 }
 
-function markKugel(){
-    let elements = document.querySelectorAll('div.kugel');
+function markPyramid4() {
+    let elements = document.querySelectorAll('div.pyramid4');
     markBordersInColor(elements, "red");
 }
 
-function mark2D(){
-    var element = document.getElementById('2dGrid');
+function markSphere() {
+    let elements = document.querySelectorAll('div.sphere');
+    markBordersInColor(elements, "red");
+}
+
+function mark2D() {
+    let element = document.getElementById('_2dGrid');
     markSectionBorders(element);
 }
 
-function mark3D(){
-    let element = document.getElementById('3dGrid');
+function mark3D() {
+    let element = document.getElementById('_3dGrid');
     markSectionBorders(element);
 }
