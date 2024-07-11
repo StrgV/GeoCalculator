@@ -1,196 +1,236 @@
-function createInput(labelText, inputId) {
-    const label = document.createElement('label');
-    label.setAttribute('for', inputId);
-    label.textContent = labelText;
-
-    const input = document.createElement('input');
-    input.setAttribute('type', 'number');
-    input.setAttribute('id', inputId);
-    input.setAttribute('name', inputId);
-
-    return { label, input };
-}
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('element-select').addEventListener('change', showInputs);
+});
 
 function showInputs() {
-    const container = document.getElementById('input-container');
-    const selectedElement = document.getElementById('element-select').value;
+    const elementSelect = document.getElementById('element-select');
+    const inputContainer = document.getElementById('input-container');
+    const operationContainer = document.getElementById('operation-container');
+    const resultContainer = document.getElementById('result-container');
+    
+    // Clear previous inputs
+    inputContainer.innerHTML = '';
+    operationContainer.innerHTML = '';
+    resultContainer.innerHTML = '';
+    
+    const selectedElement = elementSelect.value;
 
-    container.innerHTML = ''; // Clear previous inputs
-
+    // Define input fields based on the selected element
+    let inputs = [];
     switch (selectedElement) {
-        case 'rechteck':
-            var rectLength = createInput('Länge:', 'rect-length');
-            var rectWidth = createInput('Breite:', 'rect-width');
-            container.appendChild(rectLength.label);
-            container.appendChild(rectLength.input);
-            container.appendChild(document.createElement('br'));
-            container.appendChild(rectWidth.label);
-            container.appendChild(rectWidth.input);
+        case 'square':
+            inputs = [
+                { id: 'side', label: 'Seitenlänge' }
+            ];
             break;
-        case 'quadrat':
-            var squareSide = createInput('Seitenlänge:', 'square-side');
-            container.appendChild(squareSide.label);
-            container.appendChild(squareSide.input);
+        case 'rectangle':
+            inputs = [
+                { id: 'length', label: 'Länge' },
+                { id: 'width', label: 'Breite' }
+            ];
             break;
-        case 'dreieck':
-            var triangleBase = createInput('Grundlinie:', 'triangle-base');
-            var triangleHeight = createInput('Höhe:', 'triangle-height');
-            container.appendChild(triangleBase.label);
-            container.appendChild(triangleBase.input);
-            container.appendChild(document.createElement('br'));
-            container.appendChild(triangleHeight.label);
-            container.appendChild(triangleHeight.input);
+        case 'triangle':
+            inputs = [
+                { id: 'base', label: 'Grundlinie' },
+                { id: 'height', label: 'Höhe' }
+            ];
             break;
-        case 'kreis':
-            var circleRadius = createInput('Radius:', 'circle-radius');
-            container.appendChild(circleRadius.label);
-            container.appendChild(circleRadius.input);
+        case 'circle':
+            inputs = [
+                { id: 'radius', label: 'Radius' }
+            ];
             break;
-        case 'viereck':
-            var polygonSides = createInput('Anzahl der Seiten:', 'polygon-sides');
-            var polygonLength = createInput('Seitenlänge:', 'polygon-length');
-            container.appendChild(polygonSides.label);
-            container.appendChild(polygonSides.input);
-            container.appendChild(document.createElement('br'));
-            container.appendChild(polygonLength.label);
-            container.appendChild(polygonLength.input);
+        case 'trapezoid':
+            inputs = [
+                { id: 'base1', label: 'Grundlinie 1' },
+                { id: 'base2', label: 'Grundlinie 2' },
+                { id: 'height', label: 'Höhe' }
+            ];
             break;
-        case 'würfel':
-            var cubeSide = createInput('Seitenlänge:', 'cube-side');
-            container.appendChild(cubeSide.label);
-            container.appendChild(cubeSide.input);
+        case 'cube':
+            inputs = [
+                { id: 'side', label: 'Seitenlänge' }
+            ];
             break;
-        case 'quader':
-            var cuboidLength = createInput('Länge:', 'cuboid-length');
-            var cuboidWidth = createInput('Breite:', 'cuboid-width');
-            var cuboidHeight = createInput('Höhe:', 'cuboid-height');
-            container.appendChild(cuboidLength.label);
-            container.appendChild(cuboidLength.input);
-            container.appendChild(document.createElement('br'));
-            container.appendChild(cuboidWidth.label);
-            container.appendChild(cuboidWidth.input);
-            container.appendChild(document.createElement('br'));
-            container.appendChild(cuboidHeight.label);
-            container.appendChild(cuboidHeight.input);
+        case 'cuboid':
+            inputs = [
+                { id: 'length', label: 'Länge' },
+                { id: 'width', label: 'Breite' },
+                { id: 'height', label: 'Höhe' }
+            ];
             break;
-        case 'pyramide':
-            var pyramidBase = createInput('Grundlinie:', 'pyramid-base');
-            var pyramidHeight = createInput('Höhe:', 'pyramid-height');
-            container.appendChild(pyramidBase.label);
-            container.appendChild(pyramidBase.input);
-            container.appendChild(document.createElement('br'));
-            container.appendChild(pyramidHeight.label);
-            container.appendChild(pyramidHeight.input);
+        case 'pyramid3':
+            inputs = [
+                { id: 'base', label: 'Grundfläche' },
+                { id: 'height', label: 'Höhe' }
+            ];
             break;
-        case 'kugel':
-            var sphereRadius = createInput('Radius:', 'sphere-radius');
-            container.appendChild(sphereRadius.label);
-            container.appendChild(sphereRadius.input);
+        case 'pyramid4':
+            inputs = [
+                { id: 'base', label: 'Grundfläche' },
+                { id: 'height', label: 'Höhe' }
+            ];
+            break;
+        case 'sphere':
+            inputs = [
+                { id: 'radius', label: 'Radius' }
+            ];
             break;
     }
-}
 
-function showValueWarning() {
-    alert("Bitte gebe valide Werte für die Berechnung ein.");
+    // Create input fields in the DOM
+    inputs.forEach(input => {
+        const div = document.createElement('div');
+        div.classList.add('input-group');
+
+        const label = document.createElement('label');
+        label.setAttribute('for', input.id);
+        label.textContent = input.label;
+
+        const inputField = document.createElement('input');
+        inputField.setAttribute('type', 'number');
+        inputField.setAttribute('id', input.id);
+        inputField.setAttribute('name', input.id);
+
+        div.appendChild(label);
+        div.appendChild(inputField);
+        inputContainer.appendChild(div);
+    });
+
+    // Create result input field
+    const resultDiv = document.createElement('div');
+    resultDiv.classList.add('input-group');
+
+    const resultLabel = document.createElement('label');
+    resultLabel.setAttribute('for', 'result');
+    resultLabel.textContent = 'Ergebnis';
+
+    const resultField = document.createElement('input');
+    resultField.setAttribute('type', 'number');
+    resultField.setAttribute('id', 'result');
+    resultField.setAttribute('name', 'result');
+
+    resultDiv.appendChild(resultLabel);
+    resultDiv.appendChild(resultField);
+    resultContainer.appendChild(resultDiv);
+
+    // Create operation buttons
+    const calcButton = document.createElement('button');
+    calcButton.textContent = 'Vorwärts berechnen';
+    calcButton.addEventListener('click', calculate);
+
+    const reverseCalcButton = document.createElement('button');
+    reverseCalcButton.textContent = 'Rückwärts berechnen';
+    reverseCalcButton.addEventListener('click', reverseCalculate);
+
+    operationContainer.appendChild(calcButton);
+    operationContainer.appendChild(reverseCalcButton);
 }
 
 function calculate() {
-    const selectedElement = document.getElementById('element-select').value;
-    let result = '';
-
-    function validateInput(value) {
-        return !(isNaN(value) || value <= 0);
-    }
-
+    const elementSelect = document.getElementById('element-select');
+    const selectedElement = elementSelect.value;
+    
+    let result;
+    
     switch (selectedElement) {
-        case 'rechteck':
-            const rectLength = parseFloat(document.getElementById('rect-length').value);
-            const rectWidth = parseFloat(document.getElementById('rect-width').value);
-            if (validateInput(rectLength) && validateInput(rectWidth)) {
-                result = `Fläche des Rechtecks: ${rectLength * rectWidth}`;
-            } else {
-                showValueWarning();
-                return;
-            }
+        case 'square':
+            const side = document.getElementById('side').value;
+            result = side * side;
             break;
-        case 'quadrat':
-            const squareSide = parseFloat(document.getElementById('square-side').value);
-            if (validateInput(squareSide)) {
-                result = `Fläche des Quadrats: ${squareSide * squareSide}`;
-            } else {
-                showValueWarning();
-                return;
-            }
+        case 'rectangle':
+            const length = document.getElementById('length').value;
+            const width = document.getElementById('width').value;
+            result = length * width;
             break;
-        case 'dreieck':
-            const triangleBase = parseFloat(document.getElementById('triangle-base').value);
-            const triangleHeight = parseFloat(document.getElementById('triangle-height').value);
-            if (validateInput(triangleBase) && validateInput(triangleHeight)) {
-                result = `Fläche des Dreiecks: ${(triangleBase * triangleHeight) / 2}`;
-            } else {
-                showValueWarning();
-                return;
-            }
+        case 'triangle':
+            const base = document.getElementById('base').value;
+            const height = document.getElementById('height').value;
+            result = 0.5 * base * height;
             break;
-        case 'kreis':
-            const circleRadius = parseFloat(document.getElementById('circle-radius').value);
-            if (validateInput(circleRadius)) {
-                result = `Fläche des Kreises: ${Math.PI * circleRadius * circleRadius}`;
-            } else {
-                showValueWarning();
-                return;
-            }
+        case 'circle':
+            const radius = document.getElementById('radius').value;
+            result = Math.PI * radius * radius;
             break;
-        case 'viereck':
-            const polygonSides = parseFloat(document.getElementById('polygon-sides').value);
-            const polygonLength = parseFloat(document.getElementById('polygon-length').value);
-            if (validateInput(polygonSides) && validateInput(polygonLength)) {
-                result = `Umfang des Vierecks: ${polygonSides * polygonLength}`;
-            } else {
-                showValueWarning();
-                return;
-            }
+        case 'trapezoid':
+            const base1 = document.getElementById('base1').value;
+            const base2 = document.getElementById('base2').value;
+            const heightTrapezoid = document.getElementById('height').value;
+            result = ((parseFloat(base1) + parseFloat(base2)) / 2) * heightTrapezoid;
             break;
-        case 'würfel':
-            const cubeSide = parseFloat(document.getElementById('cube-side').value);
-            if (validateInput(cubeSide)) {
-                result = `Volumen des Würfels: ${Math.pow(cubeSide, 3)}`;
-            } else {
-                showValueWarning();
-                return;
-            }
+        case 'cube':
+            const sideCube = document.getElementById('side').value;
+            result = sideCube * sideCube * sideCube;
             break;
-        case 'quader':
-            const cuboidLength = parseFloat(document.getElementById('cuboid-length').value);
-            const cuboidWidth = parseFloat(document.getElementById('cuboid-width').value);
-            const cuboidHeight = parseFloat(document.getElementById('cuboid-height').value);
-            if (validateInput(cuboidLength) && validateInput(cuboidWidth) && validateInput(cuboidHeight)) {
-                result = `Volumen des Quaders: ${cuboidLength * cuboidWidth * cuboidHeight}`;
-            } else {
-                showValueWarning();
-                return;
-            }
+        case 'cuboid':
+            const lengthCuboid = document.getElementById('length').value;
+            const widthCuboid = document.getElementById('width').value;
+            const heightCuboid = document.getElementById('height').value;
+            result = lengthCuboid * widthCuboid * heightCuboid;
             break;
-        case 'pyramide':
-            const pyramidBase = parseFloat(document.getElementById('pyramid-base').value);
-            const pyramidHeight = parseFloat(document.getElementById('pyramid-height').value);
-            if (validateInput(pyramidBase) && validateInput(pyramidHeight)) {
-                result = `Volumen der Pyramide: ${(Math.pow(pyramidBase, 2) * pyramidHeight) / 3}`;
-            } else {
-                showValueWarning();
-                return;
-            }
+        case 'pyramid3':
+        case 'pyramid4':
+            const basePyramid = document.getElementById('base').value;
+            const heightPyramid = document.getElementById('height').value;
+            result = (1/3) * basePyramid * heightPyramid;
             break;
-        case 'kugel':
-            const sphereRadius = parseFloat(document.getElementById('sphere-radius').value);
-            if (validateInput(sphereRadius)) {
-                result = `Volumen der Kugel: ${(4 / 3) * Math.PI * Math.pow(sphereRadius, 3)}`;
-            } else {
-                showValueWarning();
-                return;
-            }
+        case 'sphere':
+            const radiusSphere = document.getElementById('radius').value;
+            result = (4/3) * Math.PI * Math.pow(radiusSphere, 3);
             break;
     }
+    
+    document.getElementById('result').value = result;
+}
 
-    document.getElementById('resultText').textContent = result;
+function reverseCalculate() {
+    const elementSelect = document.getElementById('element-select');
+    const selectedElement = elementSelect.value;
+    
+    const result = document.getElementById('result').value;
+    
+    switch (selectedElement) {
+        case 'square':
+            document.getElementById('side').value = Math.sqrt(result);
+            break;
+        case 'rectangle':
+            document.getElementById('length').value = Math.sqrt(result);
+            document.getElementById('width').value = Math.sqrt(result);
+            break;
+        case 'triangle':
+            document.getElementById('base').value = Math.sqrt(result * 2);
+            document.getElementById('height').value = Math.sqrt(result * 2);
+            break;
+        case 'circle':
+            document.getElementById('radius').value = Math.sqrt(result / Math.PI);
+            break;
+        case 'trapezoid':
+            case 'trapezoid':
+            const heightTrapezoid = document.getElementById('height').value;
+            if (heightTrapezoid) {
+                const baseSum = (result * 2) / heightTrapezoid;
+                const base1 = document.getElementById('base1').value || 0;
+                const base2 = baseSum - base1;
+                document.getElementById('base1').value = base1;
+                document.getElementById('base2').value = base2;
+            } else {
+                alert("Bitte geben Sie die Höhe des Trapezes ein.");
+            }
+        case 'cube':
+            document.getElementById('side').value = Math.cbrt(result);
+            break;
+        case 'cuboid':
+            document.getElementById('length').value = Math.cbrt(result);
+            document.getElementById('width').value = Math.cbrt(result);
+            document.getElementById('height').value = Math.cbrt(result);
+            break;
+        case 'pyramid3':
+        case 'pyramid4':
+            document.getElementById('base').value = Math.cbrt(result * 3);
+            document.getElementById('height').value = Math.cbrt(result * 3);
+            break;
+        case 'sphere':
+            document.getElementById('radius').value = Math.cbrt((3 * result) / (4 * Math.PI));
+            break;
+    }
 }

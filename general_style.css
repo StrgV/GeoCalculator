@@ -109,8 +109,9 @@ button{
 select, input{
     color: var(--text);
     background-color: var(--elevated_background);
-    border-radius: 1em;
+    border-radius: 0.1em;
     width: 10em;
+    height: 2em;
     text-align: center;
 }
 
@@ -191,12 +192,6 @@ abbr:hover{
 
 .eq_Image{
     grid-column: 3/4;
-}
-
-#calculator-container{
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
 }
 
 #select-container{
