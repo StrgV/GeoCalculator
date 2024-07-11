@@ -101,8 +101,8 @@ a{
 }
 
 button{
-    height: 2em;
-    width: 7em;
+    height: 3em;
+    width: 10em;
     border-radius: 10px;
 }
 
@@ -194,25 +194,32 @@ abbr:hover{
     grid-column: 3/4;
 }
 
+#calculator-container{
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr 1fr;
+    grid-template-rows: 30em;
+}
+
 #select-container{
-    display: flex;
-    margin-right: 0.5em;
-    margin: 1em 0;
+    grid-column: 1/2;
 }
 
 
 #input-container{
+    grid-column: 2/3;
     display: flex;
     flex-flow: column;
-    align-items: center;
+    justify-content: stretch;
+}
+
+#operation-container{
+    display: flex;
+    flex-flow: column;
+    grid-column: 3/4;
 }
 
 #result-container{
-    display: flex;
-    margin: 3em;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    grid-column: 4/5;
 }
 
 
