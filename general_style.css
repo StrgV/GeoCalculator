@@ -122,9 +122,15 @@ abbr:hover{
     color: lightcoral;
 }
 
+@media all and (max-width: 1000px){
+    nav ul{
+        justify-content: space-evenly;
+    }
+}
+
 @media all and (max-width: 600px){
     nav ul{
-        justify-content: start;
+        flex-flow: column;
     }
 }
 
