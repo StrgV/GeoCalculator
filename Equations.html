@@ -33,41 +33,46 @@
             <h1>Formelsammlung</h1>
 
             <button type="button" onclick="clearMarkings()">clear</button>
-            <ul id="inhaltsverzeichnis">
-                <li><button type="button" onclick="mark2D()"><strong>2D</strong></button></li>
-                <ul>
-                    <li>
+            <div id="inhaltsverzeichnis">
+                <div>
+                    <div style="margin-right: 20px;">
+                        <button type="button" onclick="mark2D()"><strong>2D</strong></button>
+                    </div>
+                    <div>
                         <button type="button" onclick="markSquare()">Quadrat</button>
-                    </li>
-                    <li>
+                    </div>
+                    <div>
                         <button type="button" onclick="markRectangle()">Rechteck</button>
-                    </li>
-                    <li>
+                    </div>
+                    <div>
                         <button type="button" onclick="markTriangle()">Dreieck</button>
-                    </li>
-                    <li>
+                    </div>
+                    <div>
                         <button type="button" onclick="markTrapezoid()">Trapez</button>
-                    </li>
-                </ul>
-                <li><button type="button" onclick="mark3D()"><strong>3D</strong></button></li>
-                <ul>
-                    <li>
+                    </div>
+                </div>
+
+                <div>
+                    <div style="margin-right: 20px;">
+                        <button type="button" onclick="mark3D()"><strong>3D</strong></button>
+                    </div>
+                    <div>
                         <button type="button" onclick="markCube()">Würfel</button>
-                    </li>
-                    <li>
+                    </div>
+                    <div>
                         <button type="button" onclick="markCuboid()">Quader</button>
-                    </li>
-                    <li>
+                    </div>
+                    <div>
                         <button type="button" onclick="markPyramid3()">Pyramide (3)</button>
-                    </li>
-                    <li>
+                    </div>
+                    <div>
                         <button type="button" onclick="markPyramid4()">Pyramide (4)</button>
-                    </li>
-                    <li>
+                    </div>
+                    <div>
                         <button type="button" onclick="markSphere()">Kugel</button>
-                    </li>
-                </ul>
-            </ul>
+                    </div>
+                </div>
+            </div>
 
         <!--ELEGANCE-Pattern Layout: Layouted with structured Grid-->
         <h2>2D</h2>
@@ -86,7 +91,7 @@
                 </mrow>
             </math>
             </div>
-            <div class="eq_Image square"><img src="src\Square.jpg" alt="square" height="100em"></div>
+            <div class="eq_Image square"><img src="src\Square.png" alt="square" height="100em"></div>
 
             <div class="eq_Title rectangle">Rechteck</div>
             <div class="eq_Equation rectangle">
@@ -100,7 +105,7 @@
                     </mrow>
                 </math>
             </div>
-            <div class="eq_Image rectangle"><img src="src\Rectan.jpg" alt="rectangle" height="100em"></div>
+            <div class="eq_Image rectangle"><img src="src\Rectan.png" alt="rectangle" height="100em"></div>
     
             <div class="eq_Title triangle">Dreieck</div>
             <div class="eq_Equation triangle">
@@ -120,7 +125,7 @@
                 </mrow>
                 </math>
             </div>
-            <div class="eq_Image triangle"><img src="src\Triangle.jpg" alt="triangle" height="100em"></div>
+            <div class="eq_Image triangle"><img src="src\Triangle.png" alt="triangle" height="100em"></div>
 
             <div class="eq_Title trapezoid">Trapez</div>
             <div class="eq_Equation trapezoid">
@@ -143,7 +148,24 @@
                     </mrow>
                 </math>
             </div>
-            <div class="eq_Image trapezoid"><img src="src\Trapezoid.jpg" alt="Trapez" height="100em"></div>
+            <div class="eq_Image trapezoid"><img src="src\Trapezoid.png" alt="Trapez" height="100em"></div>
+
+            <div class="eq_Title circle">Kreis</div>
+            <div class="eq_Equation circle">
+            <math>
+                <mrow>
+                    <mi>A</mi>
+                    <mo>=</mo>
+                    <mi>&#x3C0;</mi>
+                    <mo>&#xB7;</mo>
+                    <msup>
+                        <mi>r</mi>
+                        <mn>2</mn>
+                    </msup>
+                </mrow>
+            </math>
+            </div>
+            <div class="eq_Image circle"><img src="src\Circle.png" alt="circle" height="100em"></div>
         </div>        
 
             <h2>3D</h2>
@@ -162,7 +184,7 @@
                     </mrow>
                 </math>
             </div>
-            <div class="eq_Image cube"><img src="src\Cube.jpg" alt="cube" height="100em"></div>
+            <div class="eq_Image cube"><img src="src\Cube.png" alt="cube" height="100em"></div>
         
             <div class="eq_Title cuboid">Quader</div>
             <div class="eq_Equation cuboid">
@@ -178,7 +200,7 @@
                     </mrow>
                 </math>
             </div>
-            <div class="eq_Image cuboid"><img src="src\Cuboid.jpg" alt="cuboid" height="100em"></div>
+            <div class="eq_Image cuboid"><img src="src\Cuboid.png" alt="cuboid" height="100em"></div>
 
             <div class="eq_Title pyramid3">Pyramide (3)</div>
                 <div class="eq_Equation pyramid3">
@@ -197,7 +219,7 @@
                         </mrow>
                     </math>
                 </div>
-                <div class="eq_Image pyramid3"><img src="src/Pyramid3.jpg" alt="pyramid with 3 sided base" height="100em"></div>
+                <div class="eq_Image pyramid3"><img src="src/Pyramid3.png" alt="pyramid with 3 sided base" height="100em"></div>
 
                 <div class="eq_Title pyramid4">Pyramide (4)</div>
                 <div class="eq_Equation pyramid4">
@@ -216,7 +238,7 @@
                         </mrow>
                     </math>
                 </div>
-                <div class="eq_Image pyramid4"><img src="src/Pyramid4.jpg" alt="pyramid with 4 sided base" height="100em"></div>
+                <div class="eq_Image pyramid4"><img src="src/Pyramid4.png" alt="pyramid with 4 sided base" height="100em"></div>
 
                 <div class="eq_Title sphere">Kugel</div>
                 <div class="eq_Equation sphere">
@@ -238,7 +260,7 @@
                         </mrow>
                     </math>
                 </div>
-                <div class="eq_Image sphere"><img src="src/Sphere.jpg" alt="Kugel" height="100em"></div>
+                <div class="eq_Image sphere"><img src="src/Sphere.png" alt="Kugel" height="100em"></div>
         </div>
     <hr>
     <footer>
