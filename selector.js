@@ -42,6 +42,11 @@ function markTrapezoid() {
     markBordersInColor(elements, "red");
 }
 
+function markCircle() {
+    let elements = document.querySelectorAll('div.circle');
+    markBordersInColor(elements, "red");
+}
+
 function markCube() {
     let elements = document.querySelectorAll('div.cube');
     markBordersInColor(elements, "red");
