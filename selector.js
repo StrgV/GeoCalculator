@@ -16,9 +16,9 @@ function clearMarkings() {
     markBordersInColor(elements, "hsl(280, 76%, 65%)");
     elements = document.querySelectorAll('div.eq_Image');
     markBordersInColor(elements, "hsl(280, 76%, 65%)");
-    let element = document.getElementById('2dGrid');
+    let element = document.getElementById('_2dGrid');
     if (element) element.style.border = 'none';
-    element = document.getElementById('3dGrid');
+    element = document.getElementById('_3dGrid');
     if (element) element.style.border = 'none';
 }
 
