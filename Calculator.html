@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-    <head lang="de">
+<html lang="de">
+    <head>
         <title>GeoCalculator</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="general_style.css">
@@ -28,42 +28,45 @@
         </ul>
     </nav>
 
-<div class="mainGrid">
-    <main>
-        <h1>Rechner</h1>
-        <div id="calculator-container">
-            <div id="select-container">
-                <label for="element-select">Wähle die zu berechnende Form:</label>
-                <select id="element-select" name="element-select" onchange="showInputs()">
-                    <optgroup label="2D Elemente">
-                        <option value="square">Quadrat</option>
-                        <option value="rectangle">Rechteck</option>
-                        <option value="triangle">Dreieck</option>
-                        <option value="circle">Kreis</option>
-                        <option value="trapezoid">Trapez</option>
-                    </optgroup>
-                    <optgroup label="3D Elemente">
-                        <option value="cube">Würfel</option>
-                        <option value="cuboid">Quader</option>
-                        <option value="pyramid3">Pyramide (3)</option>
-                        <option value="pyramid4">Pyramide (4)</option>
-                        <option value="sphere">Kugel</option>
-                    </optgroup>
-                </select>
-            </div>
-            <div id="input-container">
-                <div class="input-group">
-                    <label for="side">Seitenlänge</label>
-                    <input type="number" id="side" name="side">
+
+    <div class="mainGrid">
+        <main>
+            <h1>Rechner</h1>
+            <div id="calculator-container">
+                <div id="select-container">
+                    <label for="element-select">Wähle die zu berechnende Form:</label>
+                    <select id="element-select" name="element-select" onchange="showInputs()">
+                        <optgroup label="2D Elemente">
+                            <option value="square">Quadrat</option>
+                            <option value="rectangle">Rechteck</option>
+                            <option value="triangle">Dreieck</option>
+                            <option value="circle">Kreis</option>
+                            <option value="trapezoid">Trapez</option>
+                        </optgroup>
+                        <optgroup label="3D Elemente">
+                            <option value="cube">Würfel</option>
+                            <option value="cuboid">Quader</option>
+                            <option value="pyramid3">Pyramide (3)</option>
+                            <option value="pyramid4">Pyramide (4)</option>
+                            <option value="sphere">Kugel</option>
+                        </optgroup>
+                    </select>
                 </div>
+                <div id="input-container">
+                    <div class="input-group">
+                        <label for="side">Seitenlänge</label>
+                        <input type="number" id="side" name="side">
+                    </div>
+                </div>
+                <div id="operation-container">
+                    <button type="button" onclick="calculate()">Vorwärts berechnen</button>
+                    <button type="button" onclick="reverseCalculate()">Rückwärts berechnen</button>
+                </div>
+                <div id="result-container"><div class="input-group"><label for="result">Ergebnis</label><input type="number" id="result" name="result"></div></div>
+            </main>
             </div>
-            <div id="operation-container">
-                <button type="button" onclick="calculate()">Vorwärts berechnen</button>
-                <button type="button" onclick="reverseCalculate()">Rückwärts berechnen</button>
-            </div>
-            <div id="result-container"><div class="input-group"><label for="result">Ergebnis</label><input type="number" id="result" name="result"></div></div>
     </div>
-</div>
+</main>
     <hr>
     <footer>
         <p>© GeoCalculator 2024</p>
