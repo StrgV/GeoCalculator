@@ -1,4 +1,13 @@
-var cursorEffects = function(library) {
+// Configure Cursor
+window.addEventListener("load", (event) => {
+    cursorEffect.rainbowCursor({
+        colors: ["lightblue", "pink", "white", "pink", "lightblue"],
+        length: 50,
+        size: 5
+    });
+});
+
+var cursorEffect = function(cursor) {
     "use strict";
     
     // Utility function to create and configure the canvas
@@ -32,7 +41,7 @@ var cursorEffects = function(library) {
         }
     }
     // Function to create a rainbow cursor effect
-    library.rainbowCursor = function(options) {
+    cursor.rainbowCursor = function(options) {
         let canvas, context, animationFrameId;
         let targetElement = options && options.element;
         let container = targetElement || document.body;
@@ -150,41 +159,13 @@ var cursorEffects = function(library) {
         };
     };
 
-    Object.defineProperty(library, "__esModule", {
+    Object.defineProperty(cursor, "__esModule", {
         value: true
     });
     
-    return library;
+    return cursor;
 }({});
 
-window.addEventListener("load", (event) => {
-    if (localStorage.getItem("cursorSetting") == "disable") {
-        return;
-    }
 
-    cursorEffects.rainbowCursor({
-        colors: ["lightblue", "pink", "white", "pink", "lightblue"],
-        length: 50,
-        size: 5
-    });
-});
 
-window.onload = function setUpEnableCursor() {
-    // Footer toggle cursor switch    
-    /** @type {HTMLInputElement} */
-    let enableCursor = document.getElementById("enablecursor");
-    enableCursor.checked = localStorage.getItem("cursorSetting") != "disable";
-    enableCursor.onchange = function toggleCursor() {
-        if (enableCursor.checked) {
-            if (localStorage.getItem("cursorSetting") != null) {
-                localStorage.removeItem("cursorSetting");
-            }
-        }
-        else {
-            localStorage.setItem("cursorSetting", "disable");
-        }
-
-        location.reload();
-    }
-}
 
