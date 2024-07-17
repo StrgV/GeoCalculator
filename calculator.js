@@ -16,15 +16,15 @@ const elements = {
     'sphere': [{ id: 'radius', label: 'Radius' }]
 };
 
-// Update Inputs for the selected Element
+// Update inputs for the selected element
 function showInputs() {
     const inputContainer = document.getElementById('input-container');
-    const operationContainer = document.getElementById('operation-container');
-    const resultContainer = document.getElementById('result-container');
     const selectedElement = document.getElementById('element-select').value;
 
-    inputContainer.innerHTML = operationContainer.innerHTML = resultContainer.innerHTML = '';
+    // Clear previous inputs
+    inputContainer.innerHTML = '';
 
+    // Create input fields for the selected element
     (elements[selectedElement] || []).forEach(input => {
         inputContainer.innerHTML += `
             <div class="input-group">
@@ -32,19 +32,9 @@ function showInputs() {
                 <input type="number" id="${input.id}" name="${input.id}" onfocus="removeError(event)">
             </div>`;
     });
-
-    resultContainer.innerHTML = `
-        <div class="input-group">
-            <label for="result">Ergebnis</label>
-            <input type="number" id="result" name="result" onfocus="removeError(event)">
-        </div>`;
-
-    operationContainer.innerHTML = `
-        <button onclick="calculate()">Vorwärts berechnen</button>
-        <button onclick="reverseCalculate()">Rückwärts berechnen</button>`;
 }
 
-// Make sure, that only valid inputs are calculated
+// Ensure only valid inputs are calculated
 function validateInputs(inputs) {
     let isValid = true;
     inputs.forEach(({ id, value }) => {
@@ -60,7 +50,12 @@ function validateInputs(inputs) {
     return isValid;
 }
 
-// calculate, normal direction
+// Function to round results to 2 decimal places
+function roundResult(value) {
+    return Math.round(value * 100) / 100;
+}
+
+// Calculate the normal direction
 function calculate() {
     const selectedElement = document.getElementById('element-select').value;
     const inputs = elements[selectedElement].map(input => ({
@@ -68,11 +63,13 @@ function calculate() {
         value: document.getElementById(input.id).value
     }));
 
+    // Validate inputs
     if (!validateInputs(inputs)) return;
 
     const values = Object.fromEntries(inputs.map(({ id, value }) => [id, parseFloat(value)]));
     let result;
 
+    // Calculate based on the selected element
     switch (selectedElement) {
         case 'square': result = values.side ** 2; break;
         case 'rectangle': result = values.length * values.width; break;
@@ -86,13 +83,15 @@ function calculate() {
         case 'sphere': result = (4 / 3) * Math.PI * values.radius ** 3; break;
     }
 
-    document.getElementById('result').value = result;
+    document.getElementById('result').value = roundResult(result);
 }
 
-// calculate the other way around
+// Calculate in the reverse direction
 function reverseCalculate() {
     const selectedElement = document.getElementById('element-select').value;
     const result = parseFloat(document.getElementById('result').value);
+
+    // Validate the result input
     if (!result || result <= 0) {
         alert("Bitte geben Sie einen positiven Ergebniswert ein.");
         document.getElementById('result').classList.add('error');
@@ -102,11 +101,12 @@ function reverseCalculate() {
 
     let values = {};
 
+    // Calculate based on the selected element
     switch (selectedElement) {
-        case 'square': values = { side: Math.sqrt(result) }; break;
-        case 'rectangle': values = { length: Math.sqrt(result), width: Math.sqrt(result) }; break;
-        case 'triangle': values = { base: Math.sqrt(result * 2), height: Math.sqrt(result * 2) }; break;
-        case 'circle': values = { radius: Math.sqrt(result / Math.PI) }; break;
+        case 'square': values = { side: roundResult(Math.sqrt(result)) }; break;
+        case 'rectangle': values = { length: roundResult(Math.sqrt(result)), width: roundResult(Math.sqrt(result)) }; break;
+        case 'triangle': values = { base: roundResult(Math.sqrt(result * 2)), height: roundResult(Math.sqrt(result * 2)) }; break;
+        case 'circle': values = { radius: roundResult(Math.sqrt(result / Math.PI)) }; break;
         case 'trapezoid': {
             const heightTrapezoid = parseFloat(document.getElementById('height').value);
             if (!heightTrapezoid || heightTrapezoid <= 0) {
@@ -116,29 +116,31 @@ function reverseCalculate() {
             }
             document.getElementById('height').classList.remove('error');
             const baseSum = (result * 2) / heightTrapezoid;
-            values = { base1: 0, base2: baseSum };
+            values = { base1: 0, base2: roundResult(baseSum) };
             break;
         }
-        case 'cube': values = { side: Math.cbrt(result) }; break;
+        case 'cube': values = { side: roundResult(Math.cbrt(result)) }; break;
         case 'cuboid': {
             const side = Math.cbrt(result);
-            values = { length: side, width: side, height: side };
+            values = { length: roundResult(side), width: roundResult(side), height: roundResult(side) };
             break;
         }
         case 'pyramid3':
         case 'pyramid4': {
             const baseHeight = Math.cbrt(result * 3);
-            values = { base: baseHeight, height: baseHeight };
+            values = { base: roundResult(baseHeight), height: roundResult(baseHeight) };
             break;
         }
-        case 'sphere': values = { radius: Math.cbrt((3 * result) / (4 * Math.PI)) }; break;
+        case 'sphere': values = { radius: roundResult(Math.cbrt((3 * result) / (4 * Math.PI))) }; break;
     }
 
+    // Populate the calculated values into the input fields
     for (const [id, value] of Object.entries(values)) {
         document.getElementById(id).value = value;
     }
 }
 
+// Remove error class when input field is focused
 function removeError(event) {
     event.target.classList.remove('error');
 }

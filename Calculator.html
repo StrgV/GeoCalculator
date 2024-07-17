@@ -20,19 +20,19 @@
                 <a href="Equations.html">Formelsammlung</a>
             </li>
             <li>
-            <a href="Calculator.html">Rechner</a>
+                <a href="Calculator.html">Rechner</a>
             </li>
             <li>
-            <a href="GridLayoutTest.html">Grid</a>
+                <a href="GridLayoutTest.html">Grid</a>
             </li>
         </ul>
     </nav>
-
 
     <div class="mainGrid">
         <main>
             <h1>Rechner</h1>
             <div id="calculator-container">
+                <!-- Container for the selection of shapes -->
                 <div id="select-container">
                     <label for="element-select">Wähle die zu berechnende Form:</label>
                     <select id="element-select" name="element-select" onchange="showInputs()">
@@ -52,24 +52,33 @@
                         </optgroup>
                     </select>
                 </div>
+                <!-- Container for input fields -->
                 <div id="input-container">
                     <div class="input-group">
                         <label for="side">Seitenlänge</label>
                         <input type="number" id="side" name="side">
                     </div>
                 </div>
+                <!-- Container for operation buttons -->
                 <div id="operation-container">
                     <button type="button" onclick="calculate()">Vorwärts berechnen</button>
                     <button type="button" onclick="reverseCalculate()">Rückwärts berechnen</button>
                 </div>
-                <div id="result-container"><div class="input-group"><label for="result">Ergebnis</label><input type="number" id="result" name="result"></div></div>
-            </main>
+                <!-- Container for the result display -->
+                <div id="result-container">
+                    <div class="input-group">
+                        <label for="result">Ergebnis</label>
+                        <input type="number" id="result" name="result">
+                    </div>
+                </div>
             </div>
+        </main>
     </div>
-</main>
+    
     <hr>
     <footer>
         <p>© GeoCalculator 2024 - Tim Porger</p>
+        <!-- Date of the last update -->
         <time datetime="2024-06-03 00:00">Stand: 03.06.2024</time>
     </footer>
 </body>
